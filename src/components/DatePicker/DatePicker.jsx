@@ -174,6 +174,7 @@ export const DatePicker = ({
     };
 
     const rangeModifier = isRangeVariant && isValidValue ? { start: value.from, end: value.to } : null;
+
     // Comparing `from` and `to` dates hides a weird CSS style when you select the same date twice in a date range.
     const useDateRangeStyle = isRangeVariant && isValidValue && value.from?.getTime() !== value.to?.getTime();
     // Return the same value if it is already dayjs object or has range variant otherwise format it to dayJs object
@@ -236,7 +237,7 @@ export const DatePicker = ({
             {components.Footer ? <components.Footer /> : null}
 
             {useDateRangeStyle && shouldShowRelativeRanges && (
-                <div className="ml-auto w-6/12 pb-5 pl-5 pr-10">
+                <div className="ml-auto w-6/12 pl-5 pr-10 pb-5">
                     <RelativeDateRange
                         value={rangeName}
                         ranges={ranges}
